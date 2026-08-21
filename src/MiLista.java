@@ -5,8 +5,9 @@ public class MiLista implements ListInterface{
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return this.cabeza == null;
     }
+
 
     @Override
     public int getSize() {
@@ -27,14 +28,25 @@ public class MiLista implements ListInterface{
 
     @Override
     public Object getHead() {
-        return null;
+       if (this.cabeza== null){
+           return null;
+       }
+       return this.cabeza.dato;
     }
 
     @Override
-    public Object getTail() {
-        return null;
+    public Object getTail(){
+        if (this.cabeza == null){
+            return null;
     }
+        ListNode i = this.cabeza;
+        while (i.siguiente != null){
+        i = i.siguiente;
 
+
+    }
+        return i.dato;
+    }
     @Override
     public Object get(ListNode node) {
         return null;
