@@ -47,7 +47,7 @@ public class MiLista implements ListInterface{
     }
     @Override
     public Object get(ListNode node) {
-        
+
     }
 
     @Override
