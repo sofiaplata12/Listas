@@ -42,14 +42,12 @@ public class MiLista implements ListInterface{
         ListNode i = this.cabeza;
         while (i.siguiente != null){
         i = i.siguiente;
-
-
     }
         return i.dato;
     }
     @Override
     public Object get(ListNode node) {
-        return null;
+        
     }
 
     @Override
