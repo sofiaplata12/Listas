@@ -11,7 +11,13 @@ public interface ListInterface {
 
     public void clear();
 
-    public Object getHead();
+    public Object getHead(){
+        if (isEmpty()) {
+            return null;
+        }
+        return hea
+        d.dato;
+    }
 
     public Object getTail();
 
