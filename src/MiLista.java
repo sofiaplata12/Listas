@@ -47,6 +47,7 @@ public class MiLista implements ListInterface {
         }
         return iterador.dato;
     }
+
     @Override
     public Object get(ListNode node) {
         if (node == null) {
@@ -125,6 +126,7 @@ public class MiLista implements ListInterface {
         }
         return false;
     }
+
     @Override
     public boolean insertHead(Object object) {
         try {
@@ -263,52 +265,55 @@ public class MiLista implements ListInterface {
 
 
     @Override
-     public MiLista subList(ListNode from, ListNode to) {
-            if (from == null || to == null || this.cabeza == null) {
-                return null;
-            }
-            MiLista resultado = new MiLista();
-            ListNode iterador = from;
-            boolean encontroTo = false;
-            while (iterador != null) {
-                resultado.add(iterador.dato);
-                if (iterador == to) {
-                    encontroTo = true;
-                    break;
-                }
-                iterador = iterador.siguiente;
-            }
-            if (!encontroTo) {
-                return null;
-            }
-            return resultado;
+    public MiLista subList(ListNode from, ListNode to) {
+        if (from == null || to == null || this.cabeza == null) {
+            return null;
         }
+        MiLista resultado = new MiLista();
+        ListNode iterador = from;
+        boolean encontroTo = false;
+        while (iterador != null) {
+            resultado.add(iterador.dato);
+            if (iterador == to) {
+                encontroTo = true;
+                break;
+            }
+            iterador = iterador.siguiente;
+        }
+        if (!encontroTo) {
+            return null;
+        }
+        return resultado;
     }
+
 
     @Override
     public MiLista sortList() {
-            if (this.cabeza == null || this.cabeza.siguiente == null) {
-                return this;
-            }
-            boolean huboIntercambio;
-            do {
-                huboIntercambio = false;
-                ListNode iterador = this.cabeza;
-                while (iterador.siguiente != null) {
-                    int comparacion = ((Comparable) iterador.dato).compareTo(iterador.siguiente.dato);
-                    if (comparacion > 0) {
-                        Object temporal = iterador.dato;
-                        iterador.dato = iterador.siguiente.dato;
-                        iterador.siguiente.dato = temporal;
-                        huboIntercambio = true;
-                    }
-                    iterador = iterador.siguiente;
-                }
-            } while (huboIntercambio);
+        if (this.cabeza == null || this.cabeza.siguiente == null) {
             return this;
+        }
+        boolean huboIntercambio;
+        do {
+            huboIntercambio = false;
+            ListNode iterador = this.cabeza;
+            while (iterador.siguiente != null) {
+                int comparacion = ((Comparable) iterador.dato).compareTo(iterador.siguiente.dato);
+                if (comparacion > 0) {
+                    Object temporal = iterador.dato;
+                    iterador.dato = iterador.siguiente.dato;
+                    iterador.siguiente.dato = temporal;
+                    huboIntercambio = true;
+                }
+                iterador = iterador.siguiente;
+            }
+        } while (huboIntercambio);
+        return this;
     }
+}
 
-private ListNode cabeza;
+
+
+
 
 
 
