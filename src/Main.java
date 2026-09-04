@@ -2,6 +2,7 @@
 public class Main {
     public static void main(String[] args) {
         MiLista miLista = new MiLista();
+
         System.out.println(miLista.toString());
 
         miLista.insertHead(0);
