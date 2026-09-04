@@ -305,7 +305,7 @@ public class MiLista implements ListInterface {
                     huboIntercambio = true;
                 }
                 iterador = iterador.siguiente;
-            }
+                }
         } while (huboIntercambio);
         return this;
     }

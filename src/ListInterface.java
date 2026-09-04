@@ -33,8 +33,6 @@ public interface ListInterface {
      */
     public boolean contains(Object object);
 
-
-
     public Object[] toArray();
 
     public Object[] toArray(Object[] object);
