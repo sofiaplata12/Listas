@@ -1,5 +1,5 @@
 public class MiLista implements ListInterface {
-    private ListNode cabeza;
+    public ListNode cabeza;
 
     @Override
     public boolean isEmpty() {
@@ -12,9 +12,9 @@ public class MiLista implements ListInterface {
 
         ListNode iterador = this.cabeza;
         int contador = 0;
-        while (iterador.siguiente != null) {
-            iterador = iterador.siguiente;
+        while (iterador != null) {
             contador++;
+            iterador = iterador.siguiente;
 
         }
         return contador;
@@ -130,11 +130,8 @@ public class MiLista implements ListInterface {
     @Override
     public boolean insertHead(Object object) {
         try {
-            // 1er paso: Crear el nuevo nodo con la información recibida
             ListNode nuevaCabeza = new ListNode(object);
-            //2do paso: Conectar el nodo a la cabeza
             nuevaCabeza.siguiente = this.cabeza;
-            //3er paso: redefinir la cabeza
             this.cabeza = nuevaCabeza;
             return true;
         } catch (Exception e) {
@@ -305,12 +302,26 @@ public class MiLista implements ListInterface {
                     huboIntercambio = true;
                 }
                 iterador = iterador.siguiente;
-                }
+            }
         } while (huboIntercambio);
         return this;
     }
-}
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("[");
+        ListNode iterador = this.cabeza;
+        while (iterador != null) {
+            sb.append(iterador.dato);
+            if (iterador.siguiente != null) {
+                sb.append(", ");
+            }
+            iterador = iterador.siguiente;
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+}
 
 
 
